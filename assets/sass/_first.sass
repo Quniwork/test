@@ -1,0 +1,172 @@
+// slider
+.slideshow-wrap
+  height: 600px
+.ele-slideshow-wrap
+  a
+    display: block
+  .swiper-slide
+    display: flex
+    justify-content: center
+    align-items: center
+  .slideshow-img
+    width: 100%
+    height: 600px
+    object-fit: cover
+
+
+.first-game-wrap
+  background-color: #f6f6f6
+  padding: 45px 0 48px
+  .first-game-title
+    display: flex
+    justify-content: center
+    padding-bottom: 18px
+  .page-content
+    display: flex
+    justify-content: space-between
+  .first-game-item
+    width: 372px
+    height: 452px
+    background: no-repeat center center
+    position: relative
+    @for $i from 1 through 3
+      &.first-game-item0#{$i}
+        background-image: url('/image/lang/zh-cn/first_game0#{$i}.png')
+        &:hover
+          background-image: url('/image/lang/zh-cn/first_game0#{$i}_over.png')
+  .game-wrap
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 10px
+    width: 100%
+    padding: 0 22px
+    position: absolute
+    bottom: 68px
+    a
+      display: block
+      align-content: center
+      text-align: center
+      height: 33px
+      font-size: 13px
+      color: #545454
+      background-color: #f8f8f8
+      border-radius: 4px
+      &:hover
+        background-color: #89cfff
+
+
+.first-platform-wrap
+  padding: 35px 0 54px
+  border-top: 1px solid #e9e9e9
+  border-bottom: 1px solid #e9e9e9
+  .first-platform-title
+    display: flex
+    justify-content: center
+    padding-bottom: 18px
+
+
+.first-mobile-wrap
+  background-color: #f6f6f6
+  padding: 53px 0 36px
+  .page-content
+    position: relative
+  .first-mobile-right
+    position: absolute
+    top: -26px
+    right: 40px
+
+.first-mobile-subtitle
+  display: flex
+  gap: 16px
+  padding: 22px 0 30px
+  .mobile-subtitle-item
+    display: flex
+    align-items: center
+    gap: 4px
+    .item-icon
+      width: 30px
+      height: 30px
+      background-image: url('/image/first_mobile02.png')
+
+.first-mobile-desc
+  width: 520px
+  line-height: 1.8
+  font-size: 16px
+  font-weight: bold
+
+.first-mobile-download
+  display: flex
+  align-items: center
+  gap: 30px
+  padding-top: 30px
+  .qrcode-wrap
+    width: 148px
+    height: 145px
+    background: url('/image/first_mobile03.png') no-repeat center center
+    padding: 6px
+    img
+      width: 100%
+  .support-wrap
+    >p
+      font-size: 15px
+      color: #444
+      padding-bottom: 20px
+    img
+      width: 100%
+
+
+.first-info-wrap
+  border-top: 1px solid #e9e9e9
+  padding: 51px 0 65px
+  .first-info-title
+    display: flex
+    justify-content: center
+    padding-bottom: 20px
+  .page-content
+    padding: 0 50px
+  .info-top
+    display: flex
+    gap: 90px
+    .info-top-item
+      width: 196px
+      height: 128px
+      background: url('/image/first_info01.png') no-repeat 0 0
+      position: relative
+      @for $i from 1 through 3
+        &.info-top-item0#{$i}
+          background-position: -197px * ($i - 1) 0
+      > span
+        font-size: 24px
+        color: var(--brand-color)
+        position: absolute
+        right: 23px
+        bottom: 40px
+  .info-bottom
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 40px
+    padding-top: 62px
+    .info-bottom-item
+      padding-left: 16px
+      position: relative
+      &:after
+        content: ''
+        display: block
+        width: 4px
+        height: 100px
+        background-color: var(--brand-color)
+        position: absolute
+        left: 0
+        top: 0
+    .bottom-item-title
+      font-weight: bold
+      font-size: 24px
+      line-height: 1
+      color: var(--brand-color)
+    .bottom-item-desc
+      width: 400px
+      font-size: 14px
+      color: #333
+      line-height: 1.6
+      margin-top: 18px
+

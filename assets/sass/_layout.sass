@@ -1,0 +1,291 @@
+@use 'sass:color'
+@use 'sass:list'
+
+html
+  background: var(--body-bg)
+
+.page-content
+  width: var(--page-width)
+  margin: 0 auto
+
+
+.header-top
+  color: var(--header-link-color)
+  background: var(--header-bg)
+  .page-content
+    display: flex
+    align-items: stretch
+    justify-content: space-between
+  .header-logo
+    display: block
+    > a
+      display: block
+  .mainnav-wrap
+    .ele-navbar-list
+      display: flex
+      gap: 4px
+    .ele-navbar-link
+      display: block
+      align-content: center
+      text-align: center
+      width: 100px
+      height: 90px
+      font-size: 15px
+      color: var(--header-link-color)
+      &.active, &:hover
+        background-color: var(--brand-color)
+    .ele-navbar-more
+      display: block
+      align-content: center
+      text-align: center
+      height: 90px
+      padding: 0 2px
+
+.header-middle
+  .page-content
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 48px
+    gap: 20px
+    padding-right: 10px
+    .common-link-group
+      display: flex
+      align-items: center
+      gap: 12px
+      .ele-common-link
+        a
+          font-size: 15px
+          color: #8b8b8b
+          &:hover
+            color: var(--brand-color)
+      .group-icon
+        width: 35px
+        height: 29px
+        @for $i from 1 through 5
+          &.group-icon0#{$i}
+            background: url('/image/header_icon.png') no-repeat
+            background-position: -35px * ($i - 1) 0
+
+.header-bottom
+  .page-content
+    display: flex
+    align-items: center
+    justify-content: space-between
+    border-top: 2px solid #f3f3f3
+  .login-wrap
+    align-content: center
+    height: 50px
+    padding-left: 228px
+    background: url('/image/login_txt.png') 0 0 no-repeat
+    .login-left
+      display: flex
+      align-items: center
+      gap: 4px
+      .ele-login-unit
+        display: flex
+        align-items: center
+        width: 185px
+        height: 33px
+        font-size: 13px
+        color: #333
+        background-color: #dce7f9
+        border-radius: 3px
+        padding: 0 10px
+        position: relative
+        .ele-login-placeholder
+          transition: opacity 0.3s ease
+          position: absolute
+          left: 12px
+        .ele-login-input
+          width: 100%
+          height: 100%
+          border: 0
+          background: transparent
+        .ele-show-password
+          width: 19px
+          height: 12px
+          background: url('/image/not-use/password-icon/black.png') no-repeat
+          background-position: top
+          &.open
+            background-position: bottom
+      .ele-login-submit
+        width: 90px
+        height: 33px
+        font-size: 13px
+        color: #fff
+        background-image: linear-gradient( 180deg, #00aef7 0%, #3b7afe 100%)
+        border-radius: 3px
+        margin-right: 14px
+        &:hover
+          background-image: linear-gradient( 180deg, color.scale(#00aef7, $lightness: 10%) 0%, color.scale(#3b7afe, $lightness: 10%) 100%)
+      .login-line,
+      .ele-login-forget,
+      .ele-join-btn
+        font-size: 14px
+        color: var(--brand-color)
+        &:hover
+          text-decoration: underline
+      .login-line
+        margin: 0 6px
+
+
+// lang
+$langs: ('zh-tw', 'zh-cn', 'en')
+.lang-wrap
+  padding-right: 6px
+  .ele-lang-wrap
+    display: flex
+    gap: 8px
+    position: relative
+    top: 2px
+    .ele-lang-option
+      width: 20px
+      height: 20px
+      background-image: url('/image/not-use/lang_circle_b.png')
+      cursor: pointer
+      @for $i from 1 through list.length($langs)
+        $lang: list.nth($langs, $i)
+        $position: -40px * ($i - 1)
+        &[data-title="#{$lang}"]
+          background-position: 0 #{$position}
+
+.page-banner
+  position: relative
+
+// news
+.news-wrap
+  width: 100%
+  height: 58px
+  line-height: 1
+  background: rgb(59 122 254 / 70%)
+  position: absolute
+  bottom: 0
+  z-index: 2
+  .vfm-marquee-container
+    overflow: hidden
+  .page-content
+    display: grid
+    grid-template-columns: 66px 1fr
+    align-items: center
+    gap: 10px
+  .news-title
+    width: 66px
+    height: 58px
+    background: url('/image/news_title.png') 0 0 no-repeat
+  a
+    color: #fff
+
+
+
+// footer
+.page-footer
+  background-color: #000
+
+.footer-top-wrap
+  background-color: #2d2d2d
+  padding: 30px 0 40px
+  .page-content
+    display: flex
+    color: #959595
+    padding-left: 16px
+    a
+      color: #959595
+      &:hover
+        color: var(--brand-color)
+
+.info-block
+  .info-title
+    font-size: 20px
+    font-weight: bold
+    color: #616161
+    padding-left: 5px
+    margin-bottom: 20px
+  .info-list
+    display: grid
+    padding-left: 34px
+    &.about-wrap
+      grid-template-columns: repeat(3, 1fr)
+      gap: 9px 12px
+      width: 472px
+      font-size: 15px
+      border-right: 1px solid #414141
+      padding-top: 14px
+      li
+        &:hover
+          color: var(--brand-color)
+        &::before
+          content: ''
+          display: inline-block
+          width: 8px
+          height: 8px
+          background: #616161
+          border-radius: 50%
+          margin-right: 14px
+    &.footer-nav-wrap
+      grid-template-columns: repeat(2, 1fr)
+      gap: 16px 40px
+      font-size: 14px
+
+.contact-warp
+  display: flex
+  flex-wrap: wrap
+  gap: 14px 46px
+  width: 450px
+  border-right: 1px solid #414141
+  .contact-item
+    display: flex
+    align-items: center
+    gap: 5px
+    &:nth-child(odd)
+      width: 210px
+    &:nth-child(even)
+      width: 180px
+    &::before
+      content: ''
+      display: block
+      flex: 0 0 54px
+      width: 54px
+      height: 54px
+      background: url('/image/footer_img01.png') 0 0 no-repeat
+    @for $i from 1 through 5
+      &.contact-item0#{$i}::before
+        background-position: -54px * ($i - 1) 0
+    .contact-item-text
+      display: flex
+      flex-direction: column
+      gap: 10px
+      font-size: 14px
+      .contact-item-desc
+        color: #616161
+
+.footer-bottom-wrap
+  padding: 30px 0
+  .footer-logo-wrap
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 20px
+    color: #dedede
+
+.ele-article-link-wrap
+  padding: 28px 0 20px
+  ul
+    display: flex
+    justify-content: center
+    gap: 8px
+    li
+      font-size: 14px
+      color: #dedede
+      &:has(+ li)::after
+        content: '|'
+        font-size: 11px
+        margin-left: 8px
+      a
+        color: #dedede
+        &:hover
+          color: var(--brand-color)
+
+.copyright
+  text-align: center
+  color: #dedede
